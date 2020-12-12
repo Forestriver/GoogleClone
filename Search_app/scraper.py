@@ -6,7 +6,7 @@ import re
 class Scraping:
     def run(self, url):
         session = HTMLSession()
-        url = 'https://github.com/Forestriver?tab=repositories'
+        url = []
 
         response = session.get(url)
 
