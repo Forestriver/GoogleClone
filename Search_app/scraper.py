@@ -4,12 +4,13 @@ import re
 
 
 class Scraping:
-    session = HTMLSession()
-    url = 'https://github.com/Forestriver?tab=repositories'
+    def run(self, url):
+        session = HTMLSession()
+        url = 'https://github.com/Forestriver?tab=repositories'
 
-    response = session.get(url)
+        response = session.get(url)
 
-    PageContent = response.html.html
+        PageContent = response.html.html
 
-    links = response.html.absolute_links
-    print(links)
+        links = response.html.absolute_links
+        print(links)

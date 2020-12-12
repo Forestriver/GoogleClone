@@ -23,7 +23,8 @@ async def index(request: Request):
 @app.post("/items{IndexPage}")
 async def index_item(IndexPage: str):
     """Route getting indexed data"""
-    return Scraping
+    scrapper = Scrapper()
+    scraper.run(IndexPage)
 
 
 if __name__ == "__main__":
