@@ -5,9 +5,8 @@ import re
 
 class Scraping:
     def run(self, url):
+        self.url = url
         session = HTMLSession()
-        url = []
-
         response = session.get(url)
 
         PageContent = response.html.html
