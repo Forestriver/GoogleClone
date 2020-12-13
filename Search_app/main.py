@@ -5,7 +5,12 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from scraper import *
 
+from pydantic import BaseModel
+
 # Database
+
+class PageToIndex(BaseModel):
+    IndexPage: str
 
 #API
 app = FastAPI()
@@ -20,11 +25,11 @@ async def index(request: Request):
     return templates.TemplateResponse ("home.html", {"request":request})
 
 
-@app.post("/items{IndexPage}")
-async def index_item(IndexPage: str):
+@app.post("/items")
+async def index_item(request: PageToIndex):
     """Route getting indexed data"""
     scrapper = Scrapper()
-    scraper.run(IndexPage)
+    scraper.run(request.IndexPage)
 
 
 if __name__ == "__main__":
