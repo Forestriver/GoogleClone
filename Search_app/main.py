@@ -9,9 +9,6 @@ from pydantic import BaseModel
 
 # Database
 
-class PageToIndex(BaseModel):
-    IndexPage: str
-
 #API
 app = FastAPI()
 
@@ -26,12 +23,9 @@ async def index(request: Request):
 
 
 @app.post("/items")
-async def index_item(request: PageToIndex):
+async def index_item(request: Request):
     """Route getting indexed data"""
-    scrapper = Scrapper()
-    scrapper.run(request.IndexPage)
+    request_data = await request.form()
+    scraper = Scraper()
+    scraper.run(request_data["IndexPage"])
     return "success"
-
-
-if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

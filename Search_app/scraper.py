@@ -3,7 +3,7 @@ from requests_html import HTMLSession, HTML
 import re
 
 
-class Scraping:
+class Scraper:
     def run(self, url):
         session = HTMLSession()
         response = session.get(url)
