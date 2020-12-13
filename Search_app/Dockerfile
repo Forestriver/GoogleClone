@@ -14,6 +14,7 @@ COPY ./requirements.txt .
 # install dependencies
 RUN pip install -r requirements.txt
 
+
 # copy project
 COPY . /usr/app/
 EXPOSE 8000
