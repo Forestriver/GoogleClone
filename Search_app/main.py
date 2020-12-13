@@ -29,7 +29,8 @@ async def index(request: Request):
 async def index_item(request: PageToIndex):
     """Route getting indexed data"""
     scrapper = Scrapper()
-    scraper.run(request.IndexPage)
+    scrapper.run(request.IndexPage)
+    return "success"
 
 
 if __name__ == "__main__":
